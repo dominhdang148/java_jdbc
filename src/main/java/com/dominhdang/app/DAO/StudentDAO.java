@@ -1,7 +1,14 @@
 package com.dominhdang.app.DAO;
 
-public class StudentDAO {
+import java.sql.Connection;
 
-  public static 
+import com.dominhdang.app.Utils.DatabaseConnection;
+
+public class StudentDAO {
+  private Connection connection;
+
+  public StudentDAO() {
+    connection = DatabaseConnection.getConnection();
+  }
 
 }
