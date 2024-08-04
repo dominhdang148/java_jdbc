@@ -1,14 +1,18 @@
 package com.dominhdang.app;
 
-import com.dominhdang.app.DAO.StudentDAO;
-import com.dominhdang.app.Utils.DatabaseConnection;
+import java.util.Scanner;
+
+import com.dominhdang.app.UI.MenuSelection;
+import com.dominhdang.app.UI.UI;
 
 public class App {
   public static void main(String[] args) {
-    try {
-      StudentDAO studentDAO = new StudentDAO();
-    } finally {
-      DatabaseConnection.closeConnection();
-    }
+    Scanner scanner = new Scanner(System.in);
+    MenuSelection menu = null;
+    do {
+      menu = UI.ChooseOption(scanner);
+      UI.HandleOption(menu, scanner);
+    } while (menu != MenuSelection.EXIT);
+    scanner.close();
   }
 }
